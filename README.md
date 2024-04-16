@@ -19,7 +19,7 @@ Nesta primeira unidade foram vistos os assuntos relacionados à **Internet das C
 
 - [📌 Prática 3 - Ligando um LED com um botão](https://github.com/CarlosG18/intro_iot_imd0902/blob/main/uni1/praticas/p3/p3.md)
 
-- [📌 Projeto 1 - ](https://github.com/CarlosG18/intro_iot_imd0902/blob/main/uni1/projeto/projeto1.md)
+- [📌 Projeto 1 - Monitoramento Ambiental](https://github.com/CarlosG18/intro_iot_imd0902/blob/main/uni1/projeto/projeto1.md)
 
 ## 🚀 Unidade II
 
