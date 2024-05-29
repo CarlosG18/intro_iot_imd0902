@@ -21,9 +21,9 @@ Nesta primeira unidade foram vistos os assuntos relacionados à **Internet das C
 
 - [📌 Prática 4 - Usando o MQTT](https://github.com/CarlosG18/intro_iot_imd0902/blob/main/uni1/praticas/p4/p4.md)
 
-- [📌 Projeto 1 - Monitoramento Ambiental](https://github.com/CarlosG18/intro_iot_imd0902/blob/main/uni1/projeto/projeto1.md)
-
 ## 🚀 Unidade II
+
+- [📌 Projeto 1 - Monitoramento Ambiental](https://github.com/CarlosG18/intro_iot_imd0902/blob/main/uni1/projeto/projeto1.md)
 
 ### 🎯 Atividades/projetos
 
