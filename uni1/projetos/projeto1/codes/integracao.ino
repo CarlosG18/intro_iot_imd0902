@@ -12,8 +12,8 @@ DHT dht(DHTPIN, DHTTYPE);
 WiFiClient wifi_client;
 PubSubClient mqtt_client(wifi_client);
 
-const char* wifi_ssid = "MEDEIROS SILVA";
-const char* wifi_password = "lage1890";
+const char* wifi_ssid = "sala203";
+const char* wifi_password = "s@l@203#";
 int wifi_timeout = 100000;
 
 
