@@ -23,7 +23,7 @@ Nesta primeira unidade foram vistos os assuntos relacionados à **Internet das C
 
 ## 🚀 Unidade II
 
-- [📌 Projeto 1 - Monitoramento Ambiental](https://github.com/CarlosG18/intro_iot_imd0902/blob/main/uni1/projeto/projeto1.md)
+- [📌 Projeto 1 - Monitoramento Ambiental](./uni1/projetos/projeto1/projeto1.md)
 
 ### 🎯 Atividades/projetos
 
