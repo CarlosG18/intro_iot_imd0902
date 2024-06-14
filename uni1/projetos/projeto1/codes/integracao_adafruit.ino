@@ -6,6 +6,8 @@
 
 #define DHTPIN 18    // Digital pin connected to the DHT sensor
 #define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
+//#define IO_USERNAME 
+//#define IO_KEY 
 
 DHT dht(DHTPIN, DHTTYPE);
 
