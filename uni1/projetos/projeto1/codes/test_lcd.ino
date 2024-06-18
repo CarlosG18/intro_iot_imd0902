@@ -1,7 +1,7 @@
 //Teste Basico do Display 16x2
 #include "LiquidCrystal.h" //Biblioteca para Controlar o Display
 
-LiquidCrystal lcd(13,12,33,32,35,34); //Inicializa o Display
+LiquidCrystal lcd(14,12,27,26,25,33); //Inicializa o Display
 
 void setup()
 {
