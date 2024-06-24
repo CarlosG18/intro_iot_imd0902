@@ -23,9 +23,13 @@ Nesta primeira unidade foram vistos os assuntos relacionados à **Internet das C
 
 ## 🚀 Unidade II
 
-- [📌 Projeto 1 - Monitoramento Ambiental](./uni1/projetos/projeto1/projeto1.md)
+Nesta segunda unidade, aprofundamos nosso conhecimento em Internet das Coisas (IoT) com foco em **aplicações práticas** e integrações mais complexas. Exploramos **sensores** ambientais e como eles podem ser usados para monitorar diferentes aspectos do ambiente, como temperatura e umidade. A ênfase foi colocada na coleta de dados em tempo real e na integração desses dados com serviços na nuvem para análise e visualização.
 
 ### 🎯 Atividades/projetos
+
+- [📌 Projeto 1 - Monitoramento Ambiental](./uni2/projeto/projeto1.md)
+
+- [📌 Prática 5 - Primeiros passos com o raspberrypi]()
 
 ## 🚀 Unidade III
 
