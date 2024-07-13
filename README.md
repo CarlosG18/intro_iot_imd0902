@@ -5,7 +5,7 @@
 ![departamento-disciplina](https://img.shields.io/badge/imd-introducao_a_internet_das_coisas-blue?style=for-the-badge)
 ![esp-32](https://img.shields.io/badge/esp32-red?style=for-the-badge&logo=espressif&logoColor=white)
 ![adafruit](https://img.shields.io/badge/ada_fruit-purple?style=for-the-badge&logo=adafruit)
-
+![raspberrypi](https://img.shields.io/badge/raspberrypi-bd0817?style=for-the-badge&logo=raspberrypi)
 
 ## 🚀 Unidade I
 
@@ -27,10 +27,16 @@ Nesta segunda unidade, aprofundamos nosso conhecimento em Internet das Coisas (I
 
 ### 🎯 Atividades/projetos
 
-- [📌 Projeto 1 - Monitoramento Ambiental](./uni2/projeto/projeto1.md)
-
-- [📌 Prática 5 - Primeiros passos com o raspberrypi]()
+- [📌 Projeto 1 - Monitoramento Ambiental (gabinete)](./uni2/projeto/projeto1.md)
 
 ## 🚀 Unidade III
 
+Na Unidade III, abordamos diversas tecnologias fundamentais para a Internet das Coisas (IoT). Iniciamos com uma introdução ao **Raspberry Pi**, onde exploramos seu potencial como uma plataforma versátil para projetos IoT. Discutimos a computação em nuvem, com foco no **IoT Core**, entendendo como a nuvem facilita a coleta, processamento e análise de dados provenientes de dispositivos IoT. Analisamos também diferentes aplicações de IoT, desde automação residencial até monitoramento ambiental, destacando as inovações e benefícios que a IoT traz para esses setores. Finalmente, examinamos a **segurança em IoT**, abordando os desafios e práticas recomendadas para proteger dados e dispositivos em um ambiente cada vez mais conectado.
+
 ### 🎯 Atividades/projetos
+
+- [📌 Prática 5 - Primeiros passos com o raspberrypi](./uni3/praticas/p5/intro_raspberry.md)
+
+- [📌 Prática 6 - Usando a plataforma NODE-RED](./uni3/praticas/p5/node-red.md)
+
+- [📌 Projeto 2 - monitoramento de armários](./uni3/projeto/projeto2.md)
