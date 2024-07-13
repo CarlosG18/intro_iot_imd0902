@@ -37,6 +37,6 @@ Na Unidade III, abordamos diversas tecnologias fundamentais para a Internet das 
 
 - [📌 Prática 5 - Primeiros passos com o raspberrypi](./uni3/praticas/p5/intro_raspberry.md)
 
-- [📌 Prática 6 - Usando a plataforma NODE-RED](./uni3/praticas/p5/node-red.md)
+- [📌 Prática 6 - Usando a plataforma NODE-RED](./uni3/praticas/p6/node-red.md)
 
 - [📌 Projeto 2 - monitoramento de armários](./uni3/projeto/projeto2.md)
