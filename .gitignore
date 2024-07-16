@@ -1,0 +1,65 @@
+# Python
+*.py[cod]
+__pycache__/
+*.pyo
+*.pyd
+*.pyd
+*.pdb
+*.sqlite3
+
+# Ambiente Virtual
+# Para virtualenv
+venv/
+ENV/
+env/
+.venv/
+venv.bak/
+
+# Para pipenv
+Pipfile.lock
+
+# Para poetry
+poetry.lock
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Teste e relatórios
+*.log
+*.coverage
+*.coverage.*
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+*.tgz
+*.egg-info/
+dist/
+build/
+*.egg
+*.eggs
+*.manifest
+*.spec
+
+# Arquivos temporários
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig
+*.rej
+*.DS_Store
+*.AppleDouble
+*.LSOverride
+
+# Outros
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
