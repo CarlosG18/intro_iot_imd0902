@@ -14,11 +14,8 @@ Nesta primeira unidade foram vistos os assuntos relacionados à **Internet das C
 ### 🎯 Atividades/projetos
 
 - [📌 Prática 1 - Ligando o LED interno do ESP32](https://github.com/CarlosG18/intro_iot_imd0902/blob/main/uni1/praticas/p1/p1.md)
-
 - [📌 Prática 2 - Usando o sensor ultrassônico HC-SR04](https://github.com/CarlosG18/intro_iot_imd0902/blob/main/uni1/praticas/p2/p2.md)
-
 - [📌 Prática 3 - Ligando um LED com um botão](https://github.com/CarlosG18/intro_iot_imd0902/blob/main/uni1/praticas/p3/p3.md)
-
 - [📌 Prática 4 - Usando o MQTT](https://github.com/CarlosG18/intro_iot_imd0902/blob/main/uni1/praticas/p4/p4.md)
 
 ## 🚀 Unidade II
@@ -36,7 +33,5 @@ Na Unidade III, abordamos diversas tecnologias fundamentais para a Internet das 
 ### 🎯 Atividades/projetos
 
 - [📌 Prática 5 - Primeiros passos com o raspberrypi](./uni3/praticas/p5/intro_raspberry.md)
-
 - [📌 Prática 6 - Usando a plataforma NODE-RED](./uni3/praticas/p6/node-red.md)
-
 - [📌 Projeto 2 - monitoramento de armários](./uni3/projeto/projeto2.md)
