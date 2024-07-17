@@ -3,6 +3,9 @@
 #include <PubSubClient.h>
 #include <ThingsBoard.h>
 #include <ArduinoHttpClient.h>
+#include <Preferences.h>
+
+Preferences preferences;
 
 WiFiClient wifi_client;
 PubSubClient mqtt_client(wifi_client);
@@ -15,17 +18,28 @@ int wifi_timeout = 100000;
 const char* mqtt_broker = "mqtt.thingsboard.cloud";
 const int mqtt_port = 1883;
 
-#define TOKEN 
+#define TOKEN "xuuto5gbwck4h6bornbf"
+//#define PASSWORD "kc6hp2dh5dgmi898xxun"
 
 int mqtt_timeout = 10000;
 
 int led = 2;     // Pino D2 (GPIO 2) para LED desligado
-int fotoresistor = 34;  // Pino A0 (GPIO 34) para o fotoresistor no ESP32
+int sensorLuminosidadePin = 34;  // Pino A0 (GPIO 34) para o fotoresistor no ESP32
+int fimDeCursoPin = 12;
+
+int lerFimDeCurso() {
+  return digitalRead(fimDeCursoPin);
+}
+
+int lerLuminosidade() {
+  return analogRead(sensorLuminosidadePin);
+}
 
 void setup() {
   Serial.begin(9600);
   pinMode(led, OUTPUT);
-  pinMode(fotoresistor, INPUT);
+  pinMode(sensorLuminosidadePin, INPUT);
+  pinMode(fimDeCursoPin, INPUT);
 
   WiFi.mode(WIFI_STA); //"station mode": permite o ESP32 ser um cliente da rede 
   WiFi.begin(wifi_ssid, wifi_password);
@@ -40,14 +54,17 @@ void loop() {
   }
   if (mqtt_client.connected()){
     mqtt_client.loop();
-    int fotoresistor_value = analogRead(fotoresistor);
+    int fotoresistor_value = analogRead(sensorLuminosidadePin);
     
     if (fotoresistor_value < 100) {
       digitalWrite(led, HIGH);
     } else {
       digitalWrite(led, LOW);
     }
-    String payload = "{\"Luz\":" + String(fotoresistor_value)+"}";
+
+    bool fimdecurso = lerFimDeCurso();
+
+    String payload = "{\"Luz\":" + String(fotoresistor_value)+",\"fimdecurso\":" + String(fimdecurso)+"}";
     char attributes [1000];
 
     payload.toCharArray(attributes, 1000);
