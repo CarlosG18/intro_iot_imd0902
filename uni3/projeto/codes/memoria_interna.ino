@@ -1,53 +1,34 @@
-#include <Preferences.h>
+#include <EEPROM.h>
 
-Preferences preferences;
-
+#define EEPROM_SIZE 2
 // Exemplo de pino para o sensor de fim de curso
-const int fimDeCursoPin = 13;
+const int fimDeCursoPin = 14;
+const int Led_interno = 2;
 
- // Exemplo de pino para o sensor de luminosidade (LDR)
-const int sensorLuminosidadePin = 34;
-
-int lerFimDeCurso() {
-  return digitalRead(fimDeCursoPin);
-}
-
-int lerLuminosidade() {
-  return analogRead(sensorLuminosidadePin);
-}
+bool status_fimdecurso = 0;
 
 void setup() {
   Serial.begin(115200);
-
-  // Inicialize os pinos dos sensores
+  EEPROM.begin(EEPROM_SIZE);
   pinMode(fimDeCursoPin, INPUT);
-  pinMode(sensorLuminosidadePin, INPUT);
+  pinMode(Led_interno, OUTPUT);
 
-  // Inicie as preferências com um namespace
-  preferences.begin("sensores", false);
-
-  // Leia os valores dos sensores
-  int fimDeCursoValor = lerFimDeCurso();
-  int luminosidadeValor = lerLuminosidade();
-
-  // Armazene os valores dos sensores
-  preferences.putInt("fimDeCurso", fimDeCursoValor);
-  preferences.putInt("luminosidade", luminosidadeValor);
-
-  // Recupere os valores armazenados
-  int fimDeCursoArmazenado = preferences.getInt("fimDeCurso", 0);
-  int luminosidadeArmazenada = preferences.getInt("luminosidade", 0);
-
-  // Exiba os valores no Serial Monitor
-  Serial.print("Fim de Curso Armazenado: ");
-  Serial.println(fimDeCursoArmazenado);
-  Serial.print("Luminosidade Armazenada: ");
-  Serial.println(luminosidadeArmazenada);
-
-  // Feche as preferências
-  preferences.end();
+  status_fimdecurso = EEPROM.read(0);
+  Serial.print("valor da variavel gravada = ");
+  Serial.println(status_fimdecurso);
+  if(status_fimdecurso){
+    digitalWrite(Led_interno, HIGH);
+  }else{
+    digitalWrite(Led_interno, LOW);
+  }
 }
 
 void loop() {
-  // Nada aqui
+  status_fimdecurso = digitalRead(fimDeCursoPin);
+  delay(500);
+
+
+
+  EEPROM.write(0, status_fimdecurso); // args: endereço , variavel a ser gravada 
+  EEPROM.commit(); // salvando de fato
 }
