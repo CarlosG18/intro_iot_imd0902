@@ -20,20 +20,12 @@ const int mqtt_port = 1883;
 
 int mqtt_timeout = 10000;
 int contador_open = 0;
-int estado_porta = 0;
+int estado_porta = 0; // estado da porta - inicialmente fechada (0)
 
 int led = 2;     // Pino D2 (GPIO 2) para led interno - função de sinalizar a conectividade do esp32 com o wifi
-//int sensorLuminosidadePin = 34;  // Pino A0 (GPIO 34) para o fotoresistor no ESP32
-int fimDeCursoPin = 14; // sensor fim de curso para obter o estado do armario (aberto ou fechado)
-
-int lerFimDeCurso() {
-  return digitalRead(fimDeCursoPin);
-}
-
-/*
-int lerLuminosidade() {
-  return analogRead(sensorLuminosidadePin);
-}*/
+int sensorLuminosidadePin = 34;  // Pino A0 (GPIO 34) para o fotoresistor no ESP32
+int fimDeCursoPin_left = 14; // sensor fim de curso para obter o estado do armario (aberto ou fechado) para a porta esquerda
+int fimDeCursoPin_right = 13; // sensor fim de curso para obter o estado do armario (aberto ou fechado) para a porta direita
 
 void setup() {
   // configuração inicial para armazenar na memoria interna do esp32
@@ -44,8 +36,9 @@ void setup() {
   // configuração dos pinos do esp32
   Serial.begin(9600);
   pinMode(led, OUTPUT);
-  //pinMode(sensorLuminosidadePin, INPUT);
-  pinMode(fimDeCursoPin, INPUT);
+  pinMode(sensorLuminosidadePin, INPUT);
+  pinMode(fimDeCursoPin_left, INPUT);
+  pinMode(fimDeCursoPin_right, INPUT);
 
   // configuração do wifi
   WiFi.mode(WIFI_STA); //"station mode": permite o ESP32 ser um cliente da rede 
@@ -60,26 +53,25 @@ void loop() {
   }
   if (mqtt_client.connected()){
     mqtt_client.loop();
-    /*int fotoresistor_value = analogRead(sensorLuminosidadePin);
+
+    // realizando a leitura dos sensores
+    int fotoresistor_value = analogRead(sensorLuminosidadePin); // lendo o valor do sensor de luminosidade LDR
+    bool fimdecurso_left = digitalRead(fimDeCursoPin_left);
+    bool fimdecurso_right = digitalRead(fimDeCursoPin_right);
     
-    if (fotoresistor_value < 100) {
-      digitalWrite(led, HIGH);
-    } else {
-      digitalWrite(led, LOW);
-    }*/
-
-    bool fimdecurso = lerFimDeCurso();
-
-    if(estado_porta == 0 && fimdecurso){
+    // fazendo o incremento de quantas vezes o armario foi aberto
+    if(estado_porta == 0 && (fimdecurso_left || fimDeCursoPin_right)){ // se a porta estiver fechada (0) e algum dos sensores forem ativos (1) porta aberta
       contador_open += 1;
       estado_porta = 1;
     }
 
-    if(!fimdecurso){
+    if(!fimdecurso_left && !fimDeCursoPin_right){
       estado_porta = 0;
     }
 
-    String payload = "{\"Luz\":" + String(fotoresistor_value)+",\"fimdecurso\":" + String(fimdecurso)+"}";
+    bool estado_armario = fimdecurso_left || fimdecurso_right
+
+    String payload = "{\"Luz\":" + String(fotoresistor_value)+",\"fimdecurso_left\":" + String(fimdecurso_left)+",\"fimdecurso_right\":" + String(fimdecurso_right)+",\"estado_armario\":" + String(estado_armario)+"}";
     char attributes [1000];
 
     payload.toCharArray(attributes, 1000);
@@ -90,8 +82,6 @@ void loop() {
     Serial.println(attributes);
 
     delay(1000);
-
-    Serial.println(contador_open);
 
     //EEPROM.write(2, estado_porta); // args: endereço , variavel a ser gravada 
     //EEPROM.write(3, contador_open); // args: endereço , variavel a ser gravada 
@@ -126,6 +116,9 @@ void connectWiFi(){
 
 
 void connectMQTT() {
+  /*
+    Função para conectar no protocolo mqtt
+  */
   unsigned long tempoInicial = millis();
   while (!mqtt_client.connected() && (millis() - tempoInicial < mqtt_timeout)) {
       if (WiFi.status() != WL_CONNECTED){
